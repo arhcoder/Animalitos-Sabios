@@ -8,19 +8,21 @@ let { michiWisdomQuoe, michiWisdomPhoto } = require("./bot-michi");
 let { lomitoWisdomQuoe, lomitoWisdomPhoto } = require("./bot-lomito");
 let { ajolotitoWisdomQuoe, ajolotitoWisdomPhoto } = require("./bot-ajolotito");
 
-console.log("Here we go again 🕶");
+console.log("Arrancando Animalitos Sabios...");
 
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 const TOKEN = process.env.TOKEN;
 
-// When the client is ready, run this code (only once)
-client.once("ready", () => {
-  console.log("Ready! 🤖");
+// When the client is ready, run this code (only once).
+client.once("ready", () =>
+{
+	console.log("Animalitos Sabios listos!");
+	console.log("🐈");
 });
 
-// Escucha los canales del servidor de Discord y reacciona //
+// Detecta un mensaje de Discord y reacciona.
 async function createMessage(message)
 {
 	// Variables //
@@ -70,7 +72,7 @@ async function createMessage(message)
 		break;
 
 		// LLAMANDO DE AYUDA //
-		case "help": case "ayuda":
+		case "animalitos sabios": case "help":
 			const helpEmbed = new MessageEmbed()
 			.setTitle("**Comandos de Animalitos Sabios**")
 			.setColor("#300458")
@@ -78,13 +80,13 @@ async function createMessage(message)
 			.setDescription("Escribe un comando para recibir sabiduría \nde un animalito sabio.")
 
 			.addFields(
-				{ name: '\u200B', value: '\u200B' },
+				{ name: "\u200B", value: "\u200B" },
 				{ name: "🐱 :  sabio michi", value: "Escribe \"sabio michi\" \npara reflexión.", inline: true },
 				{ name: "🐶 :  sabio lomito", value: "Escribe \"sabio lomito\" \npara inspiración.", inline: true },
-				{ name: '\u200B', value: '\u200B' },
+				{ name: "\u200B", value: "\u200B" },
 				{ name: "💖 :  sabio ajolotito", value: "Escribe \"sabio ajolotito\" \npara sabiduría.", inline: true },
-				{ name: "❓ :  help / ayuda", value: "Escribe \"help\" o \"ayuda\" \npara ver lista de comandos.", inline: true },
-				{ name: '\u200B', value: '\u200B' },
+				{ name: "❓ :  animalitos sabios", value: "Escribe \"animalitos sabios\" \npara ver lista de comandos.", inline: true },
+				{ name: "\u200B", value: "\u200B" },
 			)
 
 			.setFooter("Hecho por @arhcoder 💜", "https://github.com/arhcoder.png");
@@ -97,7 +99,7 @@ async function createMessage(message)
 	}
 }
 
-// Login to Discord with your client's token
+// Login to Discord with your client's token.
 client.login(TOKEN);
 
 // Escucha activa de mensajes en el servidor de Discord.
