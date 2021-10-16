@@ -12,6 +12,7 @@ let { ajolotitoWisdomQuoe, ajolotitoWisdomPhoto } = require("./bot-ajolotito");
 const translate = require("@iamtraction/google-translate");
 
 console.log("Arrancando Animalitos Sabios...");
+
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
@@ -35,7 +36,7 @@ async function createMessage(message)
 	switch (message.content.toLowerCase())
 	{
 		// LLAMANDO AL GATITO //
-		case "sabio michi":
+		case "sabio michi": case "sabio michito": case "sabio gato": case "sabio gatito":
 			quoe = "" + await michiWisdomQuoe();
 			photo = "" + await michiWisdomPhoto();
 
@@ -51,7 +52,7 @@ async function createMessage(message)
 		break;
 
 		// LLAMANDO AL LOMITO //
-		case "sabio lomito":
+		case "sabio lomito": case "sabio perro": case "sabio perrito":
 			quoe = "" + await lomitoWisdomQuoe();
 			photo = "" + await lomitoWisdomPhoto();
 
@@ -67,7 +68,7 @@ async function createMessage(message)
 		break;
 
 		// LLAMANDO AL AJOLOTITO //
-		case "sabio ajolotito":
+		case "sabio ajolotito": case "sabio ajolote":
 			quoe = "" + await ajolotitoWisdomQuoe();
 			photo = "" + await ajolotitoWisdomPhoto();
 
@@ -83,7 +84,7 @@ async function createMessage(message)
 		break;
 
 		// LLAMANDO DE AYUDA //
-		case "animalitos sabios": case "help":
+		case "animalitos sabios": case "@animalitos sabios":
 			const helpEmbed = new MessageEmbed()
 			.setTitle("**Comandos de Animalitos Sabios**")
 			.setColor("#300458")
