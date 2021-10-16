@@ -8,8 +8,10 @@ let { michiWisdomQuoe, michiWisdomPhoto } = require("./bot-michi");
 let { lomitoWisdomQuoe, lomitoWisdomPhoto } = require("./bot-lomito");
 let { ajolotitoWisdomQuoe, ajolotitoWisdomPhoto } = require("./bot-ajolotito");
 
-console.log("Arrancando Animalitos Sabios...");
+// Traductor //
+const translate = require("@iamtraction/google-translate");
 
+console.log("Arrancando Animalitos Sabios...");
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
@@ -37,8 +39,11 @@ async function createMessage(message)
 			quoe = "" + await michiWisdomQuoe();
 			photo = "" + await michiWisdomPhoto();
 
+			// Traduce la frase //
+			const citagGatito = await translate(quoe, {to: "es"});
+
 			const michiEmbed = new MessageEmbed()
-			.setTitle(quoe)
+			.setTitle(citagGatito.text)
 			.setImage(photo)
 			.setColor("#44086A")
 			.setFooter("— 🐈");
@@ -50,8 +55,11 @@ async function createMessage(message)
 			quoe = "" + await lomitoWisdomQuoe();
 			photo = "" + await lomitoWisdomPhoto();
 
+			// Traduce la frase //
+			const citagLomito = await translate(quoe, {to: "es"});
+
 			const lomitoEmbed = new MessageEmbed()
-			.setTitle(quoe)
+			.setTitle(citagLomito.text)
 			.setImage(photo)
 			.setColor("#5C309E")
 			.setFooter("— 🐕");
@@ -63,8 +71,11 @@ async function createMessage(message)
 			quoe = "" + await ajolotitoWisdomQuoe();
 			photo = "" + await ajolotitoWisdomPhoto();
 
+			// Traduce la frase //
+			const citaAjolotito = await translate(quoe, {to: "es"});
+
 			const ajolotitoEmbed = new MessageEmbed()
-			.setTitle(quoe)
+			.setTitle(citaAjolotito.text)
 			.setImage(photo)
 			.setColor("#B6086C")
 			.setFooter("— 💜");
