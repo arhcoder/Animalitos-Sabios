@@ -12,9 +12,17 @@ async function lomitoWisdomQuoe()
 
 async function lomitoWisdomPhoto()
 {
+    let lomitoPhotoJSON;
+    let lomitoPhoto;
+
     /// Regresa la foto de un lomito aleatorio; [String  url].
-    let lomitoPhotoJSON = await getAPIjson("https://random.dog/woof.json");
-    let lomitoPhoto = lomitoPhotoJSON.url;
+    do
+    {
+        lomitoPhotoJSON = await getAPIjson("https://random.dog/woof.json");
+        lomitoPhoto = lomitoPhotoJSON.url;
+    }
+    // Valida que la API no regrese un .mp4 //
+    while (lomitoPhoto.endsWith(".mp4"));
 
     return lomitoPhoto;
 }
