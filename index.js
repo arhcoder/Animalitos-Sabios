@@ -23,6 +23,8 @@ client.once("ready", () =>
 {
 	console.log("Animalitos Sabios listos!");
 	console.log("🐈");
+
+	client.user.setActivity("🍀 Meditando...");
 });
 
 // Detecta un mensaje de Discord y reacciona.
